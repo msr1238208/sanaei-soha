@@ -3,9 +3,9 @@
     <div class="w-full h-full mt-16">
       <p class="flex flex-col items-center">لطفا کد دریافت شده را وارد کنید</p>
 
-      <div class="flex space-x-7 mx-10 my-20">
+      <div class="flex space-x-5 mx-16 my-10">
         <input
-          class="w-full h-full py-3 items-center justify-center text-center outline-none rounded-md border text-lg bg-white focus:bg-gray-30 focus:ring-1 ring-gray-600"
+          class="w-full h-full py-3 items-center justify-center text-center outline-none rounded-md border text-lg bg-amber-50 focus:bg-gray-30 focus:ring-1"
           type="text"
           v-for="i in 4"
           v-model="digits[i - 1]"
@@ -21,11 +21,11 @@
         >
           تایید
         </button>
-        <div class="flex flex-col items-center mt-5">
+        <div class="flex flex-col items-center mt-6">
           <p class="text-gray-400">کدی دریافت نکردید</p>
           <div class="flex text-gray-400">
             ثانیه تا ارسال مجدد
-            <div class="text-stone-950"><strong>120</strong></div>
+            <div class="text-stone-950"><strong>&nbsp;120</strong></div>
           </div>
         </div>
       </div>
