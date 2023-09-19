@@ -6,19 +6,11 @@
       <div class="flex space-x-5 mx-16 my-10 md:mx-28 xl:mx-72">
         <input
           class="w-full h-full py-3 items-center justify-center text-center outline-none rounded-md border text-lg bg-amber-50 focus:bg-gray-30 focus:ring-1 "
-          type="text"
-          v-for="i in 4"
-          v-model="digits[i - 1]"
-          :key="i"
-          maxlength="1"
-          v-on:keyup="onTextKey"
-        />
+          type="text" v-for="i in 4" v-model="digits[i - 1]" :key="i" maxlength="1" v-on:keyup="onTextKey" />
       </div>
       <div class="w-full flex flex-col">
-        <button
-          type="submit"
-          class="text-slate-100 py-3 bg-gray-400 mx-10 md:mx-28 xl:mx-72 rounded-lg"
-        >
+        <button type="submit" class="text-slate-100 py-3 bg-gray-400 mx-10 md:mx-28 xl:mx-72 rounded-lg"
+          @submit="submitVerify">
           تایید
         </button>
         <div class="flex flex-col items-center mt-6">
@@ -37,6 +29,10 @@
 export default {
   data() {
     return {
+      userinfo: {
+        username: "",
+        code: "",
+      },
       digits: [],
     };
   },
@@ -66,7 +62,24 @@ export default {
         }
       }
     },
-  },
+    submitVerify() {
+      axios
+      this.userinfo.username = this.username;
+      this.userinfo.code = this.code;
+        .post("https://soha.iran.liara.run/api/v1/auth/verify", {
+      })
+      .then((response) => {
+        console.log(response);
+        const $toast = useToast();
+        this.$toast.success(response.message);
+        this.$router.push('/dong')
+      })
+      .catch((error) => {
+        const $toast = useToast();
+        $toast.error(error.response.message);
+      });
+  }
+},
 };
 </script>
 

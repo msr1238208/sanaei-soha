@@ -40,8 +40,8 @@ export default {
         })
         .then((response) => {
           console.log(response);
-          // const $toast = useToast();
-          // this.$toast.success(response.message);
+          const $toast = useToast();
+          this.$toast.success(response.message);
           this.$router.push('/verify')
         })
         .catch((error) => {
