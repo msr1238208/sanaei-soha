@@ -8,7 +8,11 @@
       <div class="w-full">
         <div class="flex flex-col mx-5 md:mx-28 lg:mx-52 xl:mx-64">
           <label class="text-right mb-1">شماره موبایل</label>
-          <input type="tel" class="px-10 py-3 outline-none rounded-lg" />
+          <input
+            type="tel"
+            class="px-10 py-3 outline-none rounded-lg"
+            v-model="phoneNumber"
+          />
           <p class="text-right mt-1 text-red-500 text-xs mb-7">
             شماره موبایل خالی نمی تواند باشد
           </p>
@@ -16,6 +20,7 @@
             <button
               type="submit"
               class="text-slate-100 py-3 bg-gray-400 rounded-lg"
+              @click="handleSubmit"
             >
               ورود یا ثبت نام
             </button>
@@ -26,4 +31,36 @@
   </div>
 </template>
 <script>
+import axios from "axios";
+import { useToast } from "vue-toast-notification";
+
+export default {
+  data() {
+    return {
+      phoneNumber: "",
+    };
+  },
+  methods: {
+    handleSubmit() {
+      this.$emit("submit", { phoneNumber: this.phoneNumber });
+    },
+    submit(user){
+      axios
+        .post("https://soha.iran.liara.run/api/v1/auth/attempt", {
+          cellphone: user.phoneNumber,
+        })
+        .then((response) => {
+          console.log(response);
+          const $toast = useToast();
+          $toast.success(response.message);
+         
+        })
+        .catch((error) => {
+          const $toast = useToast();
+          $toast.error(error.response.message);
+        });
+    },
+    }
+  },
+};
 </script>
