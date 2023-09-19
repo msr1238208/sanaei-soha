@@ -42,7 +42,7 @@ export default {
           console.log(response);
           // const $toast = useToast();
           // this.$toast.success(response.message);
-          this.router.push('/verify.vue')
+          this.$router.push('/verify')
         })
         .catch((error) => {
           const $toast = useToast();
