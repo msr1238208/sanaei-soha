@@ -7,15 +7,19 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    Auth: typeof import('./src/components/auth/Auth.vue')['default']
+    Auth: typeof import("./src/components/auth/Auth.vue")["default"]
     AuthLogin: typeof import('./src/components/auth/authLogin.vue')['default']
-    AuthRegister: typeof import('./src/components/auth/authRegister.vue')['default']
+    AuthRegister: typeof import("./src/components/auth/authRegister.vue")["default"]
     AuthVerify: typeof import('./src/components/auth/authVerify.vue')['default']
+    ButtonEnter: typeof import("./src/components/buttons/buttonEnter.vue")["default"]
+    ButtonEnterace: typeof import('./src/components/buttons/ButtonEnterace.vue')['default']
     Login: typeof import("./src/components/auth/authLogin.vue")["default"]
     Otp: typeof import("./src/components/auth/Otp.vue")["default"]
     Register: typeof import("./src/components/auth/Register.vue")["default"]
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Test: typeof import("./src/components/test.vue")["default"]
+    Verify: typeof import("./src/components/auth/authVerify.vue")["default"]
+    VerifyLogin: typeof import('./src/components/auth/authVerify.vue')['default']
   }
 }

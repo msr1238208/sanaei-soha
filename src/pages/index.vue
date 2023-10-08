@@ -1,13 +1,16 @@
 <template>
-    <authLogin />
+  <!-- <authLogin /> -->
+  <authVerify />
 </template>
 
 <script>
-import authLoginVue from '@/components/auth/authLogin.vue';
+// import authLogin from "@/components/auth/authLogin.vue";
+import authVerify from "@/components/auth/authVerify.vue";
 export default {
-    components:{
-        authLoginVue
-    }
+  components: {
+    // authLogin,
+    authVerify,
+  },
 };
 </script>
 
