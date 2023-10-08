@@ -3,6 +3,7 @@
     <div class="w-full h-full">
       <div class="flex flex-col mx-6 h-full">
         <h1 class="text-center mt-5 font-medium text-lg">دونگ</h1>
+        <ButtonBack/>
         <div class="flex flex-col h-full justify-between">
           <div class="w-full flex flex-col">
             <div
@@ -42,6 +43,7 @@
 </template>
 
 <script>
+
 export default {};
 </script>
 
