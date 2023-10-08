@@ -11,6 +11,7 @@ declare module 'vue' {
     AuthLogin: typeof import('./src/components/auth/authLogin.vue')['default']
     AuthRegister: typeof import("./src/components/auth/authRegister.vue")["default"]
     AuthVerify: typeof import('./src/components/auth/authVerify.vue')['default']
+    ButtonBack: typeof import('./src/components/buttons/ButtonBack.vue')['default']
     ButtonEnter: typeof import("./src/components/buttons/buttonEnter.vue")["default"]
     ButtonEnterace: typeof import('./src/components/buttons/ButtonEnterace.vue')['default']
     Login: typeof import("./src/components/auth/authLogin.vue")["default"]
