@@ -1,8 +1,11 @@
 <template>
   <div>
-    <KeepAlive>
-      <component :is="activeComponent"></component>
-    </KeepAlive>
+    <component
+      :is="activeComponent"
+      @setPhone="setPhone"
+      @changeComponent="changeComponent"
+      :phone="phone"
+    ></component>
   </div>
 </template>
 
@@ -15,9 +18,28 @@ export default {
     authLogin,
     authVerify,
   },
+  data() {
+    return {
+      currentComponent: "authLogin",
+      phone: "",
+    };
+  },
+  
+  methods: {
+    setPhone(phone) {
+      this.phone = phone;
+    },
+    changeComponent() {
+      if (this.currentComponent == "authLogin") {
+        this.currentComponent = "authVerify";
+      } else {
+        this.currentComponent = "authLogin";
+      }
+    },
+  },
   computed: {
     activeComponent() {
-      return "authLogin";
+      return this.currentComponent;
     },
   },
 };

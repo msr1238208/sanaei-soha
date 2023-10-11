@@ -30,7 +30,7 @@
     </div>
   </div>
 </template>
-  <script >
+  <script>
 import axios from "axios";
 import { useToast } from "vue-toast-notification";
 import ButtonEnterace from "../../components/buttons/ButtonEnterace.vue";
@@ -52,8 +52,10 @@ export default {
         .then((response) => {
           console.log(response);
           const $toast = useToast();
-          this.$toast.success(response.message);
-          this.$router.push("/verify");
+          this.$toast.success(response.data.message);
+          // this.$router.push("/authVerify");
+          this.$emit('setPhone',this.phoneNumber)
+          this.$emit("changeComponent");
         })
         .catch((error) => {
           const $toast = useToast();

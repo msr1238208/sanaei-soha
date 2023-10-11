@@ -2,7 +2,7 @@
   <div class="w-screen h-screen">
     <div class="w-full h-full flex flex-col mt-16 p-10">
       <p class="flex flex-col items-center">لطفا کد دریافت شده را وارد کنید</p>
-      <buttonBack  class="ml-64"/>
+      <buttonBack class="ml-64" />
       <div class="flex space-x-5 mx-16 my-10 md:mx-28 xl:mx-72">
         <input
           class="w-full h-full py-3 items-center justify-center text-center outline-none rounded-md border text-lg bg-amber-50 focus:bg-gray-30 focus:ring-1"
@@ -15,7 +15,7 @@
         />
       </div>
       <div class="flex flex-col px-72">
-        <ButtonEnterace :title="title" />
+        <ButtonEnterace :title="title" @click="submitVerify" />
       </div>
       <div class="flex flex-col items-center mt-6">
         <p class="text-gray-400">کدی دریافت نکردید</p>
@@ -30,6 +30,9 @@
 
 <script>
 import ButtonEnterace from "../../components/buttons/ButtonEnterace.vue";
+import axios from "axios";
+import { useToast } from "vue-toast-notification";
+
 export default {
   components: { ButtonEnterace },
 
@@ -37,12 +40,13 @@ export default {
     return {
       title: "تایید",
       userinfo: {
-        username: "",
+        phone: "",
         code: "",
       },
       digits: [],
     };
   },
+  props: ["phone"],
   computed: {
     code() {
       return this.digits.join("");
@@ -69,10 +73,10 @@ export default {
         }
       }
     },
-    submitVerify(code, username) {
+    submitVerify() {
       axios
         .post("https://soha.iran.liara.run/api/v1/auth/verify", {
-          username: this.username,
+          username: this.phone,
           code: this.code,
         })
         .then((response) => {
