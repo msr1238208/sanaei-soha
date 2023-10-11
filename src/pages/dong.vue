@@ -21,7 +21,7 @@
             >
               <div class="flex items-center justify-between">
                 <img
-                  src="../../src/assets/3dotes.svg"
+                  src="../assets/images/3dotes.svg"
                   class="w-5 ml-3"
                   alt=""
                 />
