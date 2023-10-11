@@ -23,7 +23,7 @@
             شماره موبایل خالی نمی تواند باشد
           </p>
           <div class="w-full flex flex-col">
-            <ButtonEnterace :title="title" />
+            <ButtonEnterace :title="title" @click="submit" />
           </div>
         </div>
       </div>
