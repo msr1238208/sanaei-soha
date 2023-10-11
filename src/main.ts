@@ -32,8 +32,6 @@ import "vue-toast-notification/dist/theme-bootstrap.css";
 
 app.use(ToastPlugin);
 
-import authLogin from "@/components/auth/authLogin.vue";
-import authVerify from "@/components/auth/authVerify.vue";
 
 const router = createRouter({
   routes,
