@@ -24,7 +24,7 @@ export default {
       phone: "",
     };
   },
-  
+
   methods: {
     setPhone(phone) {
       this.phone = phone;

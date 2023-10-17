@@ -1,9 +1,10 @@
 <template>
   <div class="w-screen h-screen bg-gray-100">
+    <Modal v-if="showModal" @close="closeModal" />
     <div class="w-full h-full">
       <div class="flex flex-col mx-6 h-full">
         <h1 class="text-center mt-5 font-medium text-lg">دونگ</h1>
-        <ButtonBack/>
+        <ButtonBack />
         <div class="flex flex-col h-full justify-between">
           <div class="w-full flex flex-col">
             <div
@@ -32,6 +33,7 @@
           <div class="mb-5">
             <button
               class="bg-sky-900 text-teal-50 py-4 text-xl px-5 rounded-lg"
+              @click="showModal = true"
             >
               +
             </button>
@@ -43,8 +45,20 @@
 </template>
 
 <script>
-
-export default {};
+import Modal from "../components/modals/Modal.vue";
+export default {
+  data() {
+    return {
+      showModal: false,
+    };
+  },
+  components: { Modal },
+  methods: {
+    closeModal() {
+      this.showModal = false;
+    },
+  },
+};
 </script>
 
 <style>
