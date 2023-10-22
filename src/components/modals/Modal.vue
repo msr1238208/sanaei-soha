@@ -3,15 +3,23 @@
     class="w-full h-full fixed bg-slate-700 bg-opacity-60 flex flex-col items-center px-2"
   >
     <div class="w-full md:w-2/5 p-5 my-auto bg-secondary-200 rounded-xl">
-      <p class="font-extrabold flex flex-col items-center">
-        {{ createProject }}
-      </p>
+      <p class="font-extrabold flex flex-col items-center">ایجاد پروژه</p>
       <div class="text-right pt-6">
-        <p class="font-semibold pb-2">{{ nameProject }}</p>
-        <input type="text" dir="rtl" class="rounded-lg w-full p-2" />
+        <p class="font-semibold pb-2">نام پروژه</p>
+        <input
+          type="text"
+          dir="rtl"
+          v-model="nameProject"
+          class="rounded-lg w-full p-2"
+        />
 
-        <p class="font-semibold py-2 mt-4">{{ nameGroupeCost }}</p>
-        <input type="text" dir="rtl" class="rounded-lg w-full p-2" />
+        <p class="font-semibold py-2 mt-4">نام گروه مادر خرج</p>
+        <input
+          type="text"
+          dir="rtl"
+          v-model="nameGroupeCost"
+          class="rounded-lg w-full p-2"
+        />
       </div>
 
       <div class="flex flex-col mt-16 my-3 space-y-3 p-">
@@ -39,13 +47,12 @@ import { useToast } from "vue-toast-notification";
 export default {
   data() {
     return {
-      createProject: "ایجاد پروژه",
-      nameProject: "نام پروژه",
-      nameGroupeCost: "نام گروه مادر خرج",
+      nameProject: "",
+      nameGroupeCost: "",
     };
   },
   methods: {
-    defineProject() {
+    defineProject(nameProject, nameGroupeCost) {
       console.log("added");
       axios
         .post("https://soha.iran.liara.run/api/v1/dong/project", {
