@@ -81,6 +81,11 @@ export default {
         })
         .then((response) => {
           console.log(response);
+
+          const token = response.data.data.access_token;
+          localStorage.setItem("token", token);
+          axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+
           const $toast = useToast();
           this.$toast.success(response.message);
           this.$router.push("/dong");

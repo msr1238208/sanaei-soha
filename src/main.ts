@@ -32,16 +32,17 @@ import "vue-toast-notification/dist/theme-bootstrap.css";
 
 app.use(ToastPlugin);
 
-
 const router = createRouter({
   routes,
   history: createWebHistory(),
 });
+
 // router.beforeEach(async (to) => {
 //   if (to.meta.requireAuth && !localStorage.getItem("token")) {
 //     router.push("/login");
 //   }
 // });
+
 app.use(router);
 app.mount("#app");
 

@@ -14,6 +14,13 @@ import authLogin from "../components/auth/authLogin.vue";
 import authVerify from "../components/auth/authVerify.vue";
 
 export default {
+  // mounted() {
+  //   if (localStorage.getItem("token")) {
+  //     this.$router.push({ path: "/dashboard/dong" });
+  //   } else {
+  //     this.$router.push({ path: "/login" });
+  //   }
+  // },
   components: {
     authLogin,
     authVerify,
